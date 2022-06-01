@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import React from "react";
 
 import {
@@ -10,6 +10,8 @@ import {
 } from "./layout.module.css";
 
 function Layout({ pageTitle, children }) {
+
+  
   return (
 
     <div className={container}>
