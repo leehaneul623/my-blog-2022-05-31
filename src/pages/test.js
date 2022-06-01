@@ -1,18 +1,12 @@
 import React from "react";
-import { Link } from "gatsby";
+import Layout from "../components/layout";
 
 function TestPage() {
   return (
-    <main>
+    <Layout>
       <title>테스트</title>
-
-      <div style={{ display: "flex", gap: 10 }}>
-        <Link to="/">홈</Link>
-        <Link to="/about">어바웃</Link>
-        <Link to="/test">테스트</Link>
-        <Link to="/test-space">테스트 스페이스</Link>
-      </div>
-    </main>
+      <h1>테스트 페이지 입니다.</h1>
+    </Layout>
   );
 }
 
