@@ -19,7 +19,10 @@ export const query = graphql`
         title
         date(formatString: "MMMM D, YYYY")
         hero_image {
+          relativePath
           name
+          ext
+          size
         }
       }
       body
