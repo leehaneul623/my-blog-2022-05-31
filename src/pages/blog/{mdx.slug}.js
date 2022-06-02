@@ -1,25 +1,35 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/layout";
 const BlogPost = ({ data }) => {
-  const image = getImage(data.mdx.frontmatter.hero_image);
+  const image =
+  data.mdx.frontmatter.hero_image &&
+  getImage(data.mdx.frontmatter.hero_image);
 
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
       <p>{data.mdx.frontmatter.date}</p>
+      {image && (
+      <>
       <GatsbyImage
       image={image}
       alt={data.mdx.frontmatter.hero_image_alt}
-    />
-          <p>
+      />
+       <p>
         Photo Credit:{" "}
-        <a target="_blank"a href={data.mdx.frontmatter.hero_image_credit_link}>
+        <a 
+         target="_blank"
+         href={data.mdx.frontmatter.hero_image_credit_link}
+         >
           {data.mdx.frontmatter.hero_image_credit_text}
         </a>
       </p>
+      </>
+      )}
       <hr />
+      
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
     </Layout>
   );
