@@ -1,7 +1,7 @@
 import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout";
 
 function BlogPage() {
   const data = useStaticQuery(graphql`
