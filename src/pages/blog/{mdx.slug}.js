@@ -5,7 +5,10 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/Layout";
 import CodeBlock from "../../components/CodeBlock";
 import { MDXProvider } from "@mdx-js/react";
+
 const BlogPost = ({ data }) => {
+  const tags = data.mdx.frontmatter.tags;
+
   const image =
     data.mdx.frontmatter.hero_image &&
     getImage(data.mdx.frontmatter.hero_image);
@@ -32,7 +35,6 @@ const BlogPost = ({ data }) => {
         </>
       )}
       <hr />
-
       <MDXProvider
         components={{
           pre: CodeBlock,
@@ -40,6 +42,8 @@ const BlogPost = ({ data }) => {
       >
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </MDXProvider>
+      <hr />
+      TAGS : {tags && tags.join(", ")}
     </Layout>
   );
 };
@@ -57,6 +61,7 @@ export const query = graphql`
             gatsbyImageData
           }
         }
+        tags
       }
       body
     }
