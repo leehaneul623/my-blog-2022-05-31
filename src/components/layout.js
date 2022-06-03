@@ -12,9 +12,9 @@ import {
 
 function Layout({ pageTitle, children }) {
   const data = useStaticQuery(graphql`
-    query{
-      site{
-        siteMetadata{
+    query {
+      site {
+        siteMetadata {
           title
           description
         }
@@ -51,10 +51,8 @@ function Layout({ pageTitle, children }) {
       <main>
         <h1 className={heading}>{pageTitle}</h1>
         {children}
-
-       
       </main>
-    
+
       <div>Copyright All Rights</div>
     </div>
   );
